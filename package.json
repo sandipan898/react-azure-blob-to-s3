@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@azure/identity": "^2.0.1",
     "@azure/storage-blob": "^10.3.0",
+    "formik": "^2.2.9",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
