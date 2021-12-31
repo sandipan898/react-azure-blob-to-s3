@@ -9,14 +9,13 @@ import { Formik, Field, Form } from 'formik';
 //Import Azure storage blob SDK modules
 
 import { Aborter, ServiceURL, ContainerURL, StorageURL, AnonymousCredential } from '@azure/storage-blob';
-const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+// const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
 
 //Azure account name and container to read blobs from
 
 const ACCOUNT = process.env.REACT_ACCOUNT
 const CONTAINER = process.env.REACT_CONTAINER
 const ACCOUNT_SAS = process.env.REACT_ACCOUNT_SAS
-// const accountSAS = '?sv=2020-08-04&ss=bfqt&srt=sco&sp=rltf&se=2022-01-07T14:16:36Z&st=2021-12-31T06:16:36Z&spr=https,http&sig=LnolujOE%2Bnixb7cdoq8mCrOV7YGxbiWUz%2Ff48edfsWM%3D'
 
 
 export default class BlobStorageViewer extends React.Component {
@@ -55,13 +54,10 @@ export default class BlobStorageViewer extends React.Component {
     }
 
     listBlobs(state, instance) {
-
         //This lists blobs in pages defined in state.pagesize
-
         this.setState({ loading: true });
-
+        
         //Use AnonymousCredential since container is made a 'public container' and does not require authorization
-
         const anonymousCredential = new AnonymousCredential();
         const pipeline = StorageURL.newPipeline(anonymousCredential)
 
